@@ -1,5 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "./feed.css";
+import moment from "moment";
+import he from "he";
 
 const Feed = () => {
   const [posts, setPosts] = useState();
@@ -23,7 +26,20 @@ const Feed = () => {
   return (
     <main>
       {posts.map((post) => {
-        return <div key={post._id}>{post.text}</div>;
+        return (
+          <section key={post._id}>
+            <div className="header">
+              <div className="name-title">
+                <h1>{post.title}</h1>
+                <p>By: {post.author.username}</p>
+              </div>
+              <p className="date">
+                {moment(post.timestamp).format("MMM Do, YYYY")}
+              </p>
+            </div>
+            <p className="text">{he.decode(post.text)}</p>
+          </section>
+        );
       })}
     </main>
   );
