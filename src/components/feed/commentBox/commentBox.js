@@ -1,6 +1,7 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./commentBox.css";
+import Comment from "./comment/comment";
 
 const CommentBox = ({ postId }) => {
   const [comments, setComments] = useState(null);
@@ -12,7 +13,7 @@ const CommentBox = ({ postId }) => {
       );
 
       if (!response.ok) {
-        return;
+        return { error: "User not found" };
       }
 
       const resolved = await response.json();
@@ -29,7 +30,7 @@ const CommentBox = ({ postId }) => {
   return comments ? (
     <div>
       {comments.map((comment) => {
-        return <div key={comment._id}>{comment.text}</div>;
+        return <Comment comment={comment} />;
       })}
       <button onClick={closeComments}>Close comments</button>
     </div>

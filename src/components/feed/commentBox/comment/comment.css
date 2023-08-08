@@ -1,0 +1,16 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid black;
+  margin-top: 12px;
+}
+
+.comment .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment .comment-date {
+  font-size: 12px;
+}
