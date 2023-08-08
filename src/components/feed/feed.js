@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./feed.css";
+import CommentBox from "./commentBox/commentBox";
 import moment from "moment";
 import he from "he";
 
@@ -38,6 +39,7 @@ const Feed = () => {
               </p>
             </div>
             <p className="text">{he.decode(post.text)}</p>
+            <CommentBox postId={post._id} />
           </section>
         );
       })}
