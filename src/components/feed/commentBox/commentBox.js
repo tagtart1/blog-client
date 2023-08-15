@@ -30,7 +30,7 @@ const CommentBox = ({ postId }) => {
   return comments ? (
     <div>
       {comments.map((comment) => {
-        return <Comment comment={comment} />;
+        return <Comment comment={comment} key={comment._id} />;
       })}
       <button onClick={closeComments}>Close comments</button>
     </div>

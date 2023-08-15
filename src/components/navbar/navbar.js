@@ -8,7 +8,15 @@ const navbar = () => {
       <nav>
         <ul>
           <li>Home</li>
-          <li>Contact</li>
+          <li>
+            <a
+              href="http://localhost:3002"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Manage
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
