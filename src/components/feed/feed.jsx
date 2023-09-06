@@ -35,7 +35,7 @@ const Feed = () => {
                 <p>By: {post.author.username}</p>
               </div>
               <p className="date">
-                {moment(post.timestamp).format("MMM Do, YYYY")}
+                {moment(post.createdTimestamp).format("MMM Do, YYYY")}
               </p>
             </div>
             <p className="text">{he.decode(post.text)}</p>
