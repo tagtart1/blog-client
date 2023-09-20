@@ -50,3 +50,14 @@ section .text {
   margin-top: 24px;
   text-align: left;
 }
+
+.date {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.date .last-updated-date {
+  font-size: 12px;
+}

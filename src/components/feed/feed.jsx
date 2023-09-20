@@ -36,6 +36,12 @@ const Feed = () => {
               </div>
               <p className="date">
                 {moment(post.createdTimestamp).format("MMM Do, YYYY")}
+                {post.lastUpdatedTimestamp ? (
+                  <div className="last-updated-date">
+                    Last updated:{" "}
+                    {moment(post.lastUpdatedTimestamp).format("MMM Do, YYYY")}
+                  </div>
+                ) : null}
               </p>
             </div>
             <p className="text">{he.decode(post.text)}</p>
