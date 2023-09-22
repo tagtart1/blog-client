@@ -12,8 +12,8 @@ const Feed = () => {
     const fetchPosts = async () => {
       try {
         const response = await fetch("http://localhost:3001/api/posts");
-        const json = await response.json();
-        setPosts(json);
+        const result = await response.json();
+        setPosts(result.data.posts);
       } catch (err) {
         console.error("Error:", err);
       }
@@ -34,15 +34,15 @@ const Feed = () => {
                 <h1>{post.title}</h1>
                 <p>By: {post.author.username}</p>
               </div>
-              <p className="date">
+              <div className="date">
                 {moment(post.createdTimestamp).format("MMM Do, YYYY")}
                 {post.lastUpdatedTimestamp ? (
-                  <div className="last-updated-date">
+                  <p className="last-updated-date">
                     Last updated:{" "}
                     {moment(post.lastUpdatedTimestamp).format("MMM Do, YYYY")}
-                  </div>
+                  </p>
                 ) : null}
-              </p>
+              </div>
             </div>
             <p className="text">{he.decode(post.text)}</p>
             <CommentBox postId={post._id} />
